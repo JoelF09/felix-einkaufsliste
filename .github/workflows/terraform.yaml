@@ -37,9 +37,7 @@ jobs:
       run: terraform fmt -check && terraform validate
 
     - name: Terraform Plan
-      run: terraform plan -no-color
-      env:
-        TF_IN_AUTOMATION: true
+      run: terraform plan
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
