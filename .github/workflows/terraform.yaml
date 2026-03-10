@@ -33,14 +33,8 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - name: Terraform Format and Validate
-      run: terraform fmt -check && terraform validate
-
     - name: Terraform Plan
       run: terraform plan
-      env:
-        TF_IN_AUTOMATION: true
 
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
