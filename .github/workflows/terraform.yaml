@@ -38,6 +38,8 @@ jobs:
 
     - name: Terraform Plan
       run: terraform plan
+      env:
+        TF_IN_AUTOMATION: true
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
