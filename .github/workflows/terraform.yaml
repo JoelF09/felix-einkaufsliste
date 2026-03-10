@@ -32,19 +32,19 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      working-directory: ./terraform
+      working-directory: /github/workflows
 
     - name: Terraform Format and Validate
       run: terraform fmt -check && terraform validate
-      working-directory: ./terraform
+      working-directory: /github/workflows
 
     - name: Terraform Plan
       run: terraform plan -no-color
-      working-directory: ./terraform
+      working-directory: /github/workflows
       env:
         TF_IN_AUTOMATION: true
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
-      working-directory: ./terraform
+      working-directory: /github/workflows
